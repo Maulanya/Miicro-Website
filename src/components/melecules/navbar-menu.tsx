@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { FaAngleDown } from "react-icons/fa6";
+import clsx from "clsx";
 
 
 const transition = {
@@ -22,7 +23,7 @@ export const MenuItem = ({
   icon: Icon,
   imageIcon,
   children,
-  dropdown
+  dropdown,
 }: {
   setActive: (item: string) => void;
   active: string | null;
@@ -36,9 +37,9 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className="relative w-full">
       <motion.div
         transition={{ duration: 0.3 }}
-        className='cursor-pointer text-black hover:opacity-[0.9] dark:text-white flex items-center justify-between md:justify-center'
+        className='cursor-pointer text-black hover:opacity-[0.9] dark:text-white flex items-center justify-between md:justify-center gap-2'
       >
-        <div className="flex items-center justify-center gap-1">
+        <div className="flex items-center justify-center gap-1 w-max">
           {Icon ? <Icon /> : imageIcon ? <Image src={imageIcon} alt={item} className="w-5 h-5" /> : null}
           {item}
         </div>
@@ -81,8 +82,8 @@ export const Menu = ({
 }) => {
   return (
     <nav
-      onMouseLeave={() => setActive(null)} // resets the state
-      className="relative shadow-input flex justify-center space-x-4 md:px-8 md:py-6 px-5 py-3 mb-5 md:mb-0 border border-[#1F2126] rounded-lg"
+      onMouseLeave={() => setActive(null)}
+      className='relative shadow-input flex justify-center space-x-4 md:px-8 md:py-6 px-5 py-3 mb-5 md:mb-0 border md:border-none border-[#1F2126] rounded-lg'
     >
       {children}
     </nav>
