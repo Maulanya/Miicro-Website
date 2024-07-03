@@ -22,6 +22,7 @@ export const MenuItem = ({
   icon: Icon,
   imageIcon,
   children,
+  dropdown
 }: {
   setActive: (item: string) => void;
   active: string | null;
@@ -29,6 +30,7 @@ export const MenuItem = ({
   icon?: React.ComponentType;
   imageIcon?: string;
   children?: React.ReactNode;
+  dropdown: boolean;
 }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative ">
@@ -36,7 +38,7 @@ export const MenuItem = ({
         transition={{ duration: 0.3 }}
         className='cursor-pointer text-black hover:opacity-[0.9] dark:text-white flex items-center justify-center gap-1'
       >
-        {Icon ? <Icon /> : imageIcon ? <Image src={imageIcon} alt={item} className="w-5 h-5" /> : null} {item} {item === "Products" && <FaAngleDown className="text-[10px]" />}
+        {Icon ? <Icon /> : imageIcon ? <Image src={imageIcon} alt={item} className="w-5 h-5" /> : null} {item} {dropdown === true && <FaAngleDown className="text-[10px]" />}
       </motion.p>
       {active !== null && (
         <motion.div
@@ -49,7 +51,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
+                className="bg-[#1F2126] backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
               >
                 <motion.div
                   layout // layout ensures smooth animation
@@ -115,11 +117,11 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: any) => {
+export const HoveredLink = ({ className, children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="text-neutral-700 dark:text-neutral-200 hover:text-black "
+      className={`text-neutral-700 dark:text-neutral-200 hover:text-black ${className}`}
     >
       {children}
     </Link>
