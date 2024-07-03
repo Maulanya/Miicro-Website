@@ -12,7 +12,7 @@ export default function Main() {
     <section className="text-white bg-dot-white/[0.2] h-full w-full">
 
       {/* MOBILE MAIN */}
-      <main className="md:hidden block text-center">
+      <main className="md:hidden block text-center pt-[20px]">
         <div className="mb-6 mt-5">
           <h1 className="text-center text-[34px] leading-[41px] font-ChillaxMedium font-medium">
             <span className="text-[#F4A4EC]">WordPress</span> themes and fully{" "}

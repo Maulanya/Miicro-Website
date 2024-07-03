@@ -61,7 +61,7 @@ export default function NavMobile() {
 
   return (
     <nav
-      className={`w-full md:text-sm md:hidden block ${menuOpen ? "shadow-lg rounded-xl md:shadow-none" : ""
+      className={`md:w-full w-[92%] m-auto md:text-sm md:hidden block ${menuOpen ? "shadow-lg rounded-xl md:shadow-none" : ""
         }`}
     >
       <div className="gap-x-14 items-center max-w-screen-xl md:flex">

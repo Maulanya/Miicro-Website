@@ -13,7 +13,7 @@ export function Navbar({ className }: { className?: string }) {
   return (
     <Menu setActive={setActive}>
       <MenuItem setActive={setActive} active={active} imageIcon={ProductsIcon} dropdown={true} item="Products">
-        <div className="  text-sm grid grid-cols-2 gap-10 p-4">
+        <div className="text-sm grid grid-cols-2 gap-10 p-4">
           <ProductItem
             title="Algochurn"
             href="https://algochurn.com"
