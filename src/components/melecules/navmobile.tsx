@@ -23,11 +23,11 @@ export default function NavMobile() {
   }, []);
 
   return (
-    <nav className={`w-full md:text-sm ${state ? 'shadow-lg rounded-xl border  md:shadow-none md:border-none' : ''}`}>
+    <nav className={`w-full px-3 md:text-sm md:hidden block ${state ? 'shadow-lg rounded-xl border  md:shadow-none md:border-none' : ''}`}>
       <div className="gap-x-14 items-center max-w-screen-xl md:flex">
         <div className="flex items-center justify-between  md:block">
           <a href="javascript:void(0)">
-            <Image src={MiicroLogo} alt="logo" className="w-20 my-5" />
+            <Image src={MiicroLogo} alt="logo" className="w-[100px] my-7" />
           </a>
           <div className="md:hidden">
             <button
@@ -57,7 +57,7 @@ export default function NavMobile() {
             </button>
           </div>
         </div>
-        <div className={`flex-1 absolute top-0 bg-white w-full items-center mt-8 md:mt-0 md:flex ${state ? 'block' : 'hidden'}`}>
+        <div className={`flex-1 absolute top-0 left-0 bg-red-500 w-full items-center pt-8 md:mt-0 md:flex ${state ? 'block' : 'hidden'}`}>
           <ul className="justify-center items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
             {navigation.map((item, idx) => (
               <li key={idx} className="text-gray-700 hover:text-gray-900">

@@ -5,13 +5,13 @@ import clsx from 'clsx';
 
 const AccordionDemo = () => {
   return (
-    <section className='flex flex-col items-center justify-center'>
-      <h1 className='text-6xl text-white font-ChillaxMedium mb-20'>FAQs</h1>
+    <section className='md:mt-0 mt-[100px] flex flex-col items-center justify-center'>
+      <h1 className='md:text-6xl text-[44px] text-white font-ChillaxMedium md:mb-20 mb-12'>FAQs</h1>
       <Accordion.Root
-        className="bg-mauve6 w-[500px] m-auto rounded-md grid gap-3"
+        className="bg-mauve6 md:w-[500px] m-auto rounded-md grid gap-3 w-[85%]"
         type="single"
         defaultValue="item-1"
-        collapsible
+        collapsible 
       >
         <AccordionItem value="item-1">
           <AccordionTrigger>Is it accessible?</AccordionTrigger>
@@ -57,7 +57,7 @@ const AccordionTrigger = React.forwardRef<HTMLButtonElement, React.ComponentProp
     <Accordion.Header className="flex">
       <Accordion.Trigger
         className={clsx(
-          'text-violet11 gap-2 hover:bg-mauve2 justify-center group flex h-[60px] flex-1 data-[state=open]:bg-white data-[state=open]:text-black text-white cursor-default items-center bg-[#1F2126] rounded-full px-5 text-[15px] leading-none outline-none',
+          'w-[1000px] text-violet11 gap-2 hover:bg-mauve2 justify-center group flex h-[60px] flex-1 data-[state=open]:bg-white data-[state=open]:text-black text-white cursor-default items-center bg-[#1F2126] rounded-full px-5 text-[15px] leading-none outline-none',
           className
         )}
         {...props}
@@ -78,7 +78,7 @@ const AccordionContent = React.forwardRef<HTMLDivElement, React.ComponentPropsWi
   ({ children, className, ...props }, forwardedRef) => (
     <Accordion.Content
       className={clsx(
-        'text-mauve11 text-white bg-mauve2 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px]',
+        'text-mauve11 text-white text-center bg-mauve2 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px]',
         className
       )}
       {...props}

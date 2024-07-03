@@ -75,7 +75,7 @@ export const InfiniteMovingCards = ({
   return (
     <div
       ref={containerRef}
-      className="scroller w-full overflow-hidden"
+      className={`scroller w-full overflow-hidden ${className}`}
     >
       <ul
         ref={scrollerRef}

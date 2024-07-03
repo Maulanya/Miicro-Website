@@ -60,7 +60,7 @@ const footerNavs = [
 export default function Footer() {
   return (
     <footer className="text-white bg-dot-white/[0.2] px-4 py-5 max-w-screen-xl mx-auto md:px-8">
-      <div className="gap-6 justify-between md:flex">
+      <div className="gap-6 justify-between md:flex ">
         <div className="flex-1">
           <div className="max-w-xs">
             <Image src={MiicroLogo} className="w-32" alt='Logo' width={100} height={100} sizes='100vw' />
@@ -80,7 +80,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex-1 mt-10 space-y-6 items-center justify-center gap-36 sm:flex md:space-y-0 md:mt-0">
+        <div className="md:flex-1 md:w-auto flex mt-10 space-y-6 items-center justify-center gap-36 sm:flex md:space-y-0 md:mt-0">
           {
             footerNavs.map((item, idx) => (
               <ul
