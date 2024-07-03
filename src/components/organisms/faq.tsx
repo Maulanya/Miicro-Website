@@ -21,7 +21,7 @@ const AccordionDemo = () => {
         <AccordionItem value="item-2">
           <AccordionTrigger>Is it unstyled?</AccordionTrigger>
           <AccordionContent>
-            Yes. It's unstyled by default, giving you freedom over the look and feel.
+            Yes. It&apos;s unstyled by default, giving you freedom over the look and feel.
           </AccordionContent>
         </AccordionItem>
 
@@ -50,6 +50,7 @@ const AccordionItem = React.forwardRef<HTMLDivElement, React.ComponentPropsWitho
     </Accordion.Item>
   )
 );
+AccordionItem.displayName = 'AccordionItem';
 
 const AccordionTrigger = React.forwardRef<HTMLButtonElement, React.ComponentPropsWithoutRef<typeof Accordion.Trigger>>(
   ({ children, className, ...props }, forwardedRef) => (
@@ -71,6 +72,7 @@ const AccordionTrigger = React.forwardRef<HTMLButtonElement, React.ComponentProp
     </Accordion.Header>
   )
 );
+AccordionTrigger.displayName = 'AccordionTrigger';
 
 const AccordionContent = React.forwardRef<HTMLDivElement, React.ComponentPropsWithoutRef<typeof Accordion.Content>>(
   ({ children, className, ...props }, forwardedRef) => (
@@ -86,5 +88,6 @@ const AccordionContent = React.forwardRef<HTMLDivElement, React.ComponentPropsWi
     </Accordion.Content>
   )
 );
+AccordionContent.displayName = 'AccordionContent';
 
 export default AccordionDemo;

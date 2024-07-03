@@ -23,7 +23,7 @@ export default function Home() {
       <BuildLaunch />
       <Customers />
       <FAQ />
-      <InfiniteMovingCards items={[getStartedTodayGreen, getStartedTodayPink, getStartedTodayYellow]} />
+      <InfiniteMovingCards speed="slow" items={[getStartedTodayGreen, getStartedTodayPink, getStartedTodayYellow]} />
       <Footer />
     </>
   );
