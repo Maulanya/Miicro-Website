@@ -12,10 +12,10 @@ export function Dropdownlanguage({ className }: { className?: string }) {
     <Menu setActive={setActive}>
       <MenuItem setActive={setActive} active={active} imageIcon={ENLang} dropdown={true} item="EN">
         <div className="flex flex-col space-y-4 text-sm">
-          <HoveredLink href="/hobby" className="flex items-center gap-2">
+          <HoveredLink href="#" className="flex items-center gap-2">
             <Image src={ENLang} alt="EN" width={20} height={20} className="w-full h-full object-cover" sizes="100vw" />
             EN</HoveredLink>
-          <HoveredLink href="/hobby" className="flex items-center gap-2">
+          <HoveredLink href="#" className="flex items-center gap-2">
             <Image src={IDLang} alt="ID" width={20} height={20} className="w-[25px] h-[25px] object-cover" sizes="100vw" />
             ID</HoveredLink>
         </div>

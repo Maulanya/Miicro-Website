@@ -1,88 +1,85 @@
 "use client"
 
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import MiicroLogo from '@/assets/images/Logo.svg'
 import Image from 'next/image';
+import Link from 'next/link';
+import { Dropdownlanguage } from './dropdownlanguage';
+import { MdClose } from "react-icons/md";
+import { IoMdMenu } from "react-icons/io";
+import clsx from 'clsx';
+import { FaChevronRight } from "react-icons/fa";
+
+import TemplateIcon from '@/assets/images/Template.svg'
+import PricingIcon from '@/assets/images/Pricing.svg'
+import CLientIcon from '@/assets/images/Client.svg'
+import ProductsIcon from '@/assets/images/Products.svg'
 
 export default function NavMobile() {
   const [state, setState] = useState(false);
-
-  // Replace javascript:void(0) paths with your paths
+  // Replace # paths with your paths
   const navigation = [
-    { title: 'Features', path: 'javascript:void(0)' },
-    { title: 'Integrations', path: 'javascript:void(0)' },
-    { title: 'Customers', path: 'javascript:void(0)' },
-    { title: 'Pricing', path: 'javascript:void(0)' }
+    { title: 'Products', path: '#', image: TemplateIcon },
+    { title: 'Pricing', path: '#', image: PricingIcon },
+    { title: 'Clients', path: '#', image: CLientIcon },
+    { title: 'Templates', path: '#', image: ProductsIcon }
   ];
 
-  useEffect(() => {
-    document.onclick = (e) => {
-      const target = e.target as Element;
-      if (!target.closest('.menu-btn')) setState(false);
-    };
-  }, []);
-
+  const ShowMenu = useCallback(() => {
+    if (state) {
+      setState(false)
+    } else {
+      setState(true)
+    }
+  }, [state])
   return (
-    <nav className={`w-full md:text-sm md:hidden block ${state ? 'shadow-lg rounded-xl border  md:shadow-none md:border-none' : ''}`}>
+    <nav className={`w-full md:text-sm md:hidden block ${state ? 'shadow-lg rounded-xl  md:shadow-none' : ''}`}>
       <div className="gap-x-14 items-center max-w-screen-xl md:flex">
         <div className="flex items-center justify-between  md:block">
-          <a href="javascript:void(0)">
-            <Image src={MiicroLogo} alt="logo" className="w-20 my-5" />
+          <a href="#">
+            <Image src={MiicroLogo} alt="logo" className="w-[100px] my-7" />
           </a>
           <div className="md:hidden">
             <button
-              className="menu-btn text-gray-500 hover:text-gray-800"
-              onClick={() => setState(!state)}
+              className={clsx('hover:text-gray-800 outline-none border-none p-2 rounded-lg text-lg', {
+                'bg-[#F4A4EC] text-black': state,
+                'bg-[#1F2126] text-white': !state,
+              })}
+              onClick={ShowMenu}
             >
-              {state ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-              )}
+              {
+                state ? <MdClose /> : <IoMdMenu />
+              }
             </button>
           </div>
         </div>
-        <div className={`flex-1 absolute top-0 bg-white w-full items-center mt-8 md:mt-0 md:flex ${state ? 'block' : 'hidden'}`}>
-          <ul className="justify-center items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
+        <div className={`absolute left-0 px-5 h-screen pb-36 bg-[#141518] w-full items-center justify-between pt-8 md:mt-0 flex flex-col ${state ? 'block' : 'hidden'}`}>
+          <ul className="justify-center items-center w-full space-y-6 md:flex md:space-x-6 md:space-y-0">
             {navigation.map((item, idx) => (
-              <li key={idx} className="text-gray-700 hover:text-gray-900">
-                <a href={item.path} className="block">
-                  {item.title}
-                </a>
+              <li key={idx} className="text-white hover:text-gray-900 flex items-center justify-between">
+                <div className='flex items-center gap-2'>
+                  <Image src={item.image} alt={item.title} width={20} height={20} sizes='100vw' />
+                  <a href={item.path} className="block">
+                    {item.title}
+                  </a>
+                </div>
+                <FaChevronRight />
               </li>
             ))}
           </ul>
-          <div className="flex-1 gap-x-6 items-center justify-end mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
-            <a href="javascript:void(0)" className="block text-gray-700 hover:text-gray-900">
-              Log in
-            </a>
-            <a
-              href="javascript:void(0)"
-              className="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex"
+          <div className="items-center justify-end space-y-3 md:flex md:space-y-0 md:mt-0 w-full">
+            <Dropdownlanguage />
+            <Link
+              href="#"
+              className="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-ChillaxMedium bg-[#1F2126] hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex"
             >
               Sign in
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-                <path
-                  fillRule="evenodd"
-                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                  clipRule="evenodd"
-                />
-              </svg>
+            </Link>
+            <a
+              href="#"
+              className="flex items-center justify-center gap-x-1 py-2 px-4 text-black font-ChillaxMedium bg-[#E2D26C] hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex"
+            >
+              Get started
             </a>
           </div>
         </div>

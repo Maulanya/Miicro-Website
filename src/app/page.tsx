@@ -11,6 +11,9 @@ import getStartedTodayGreen from '@/assets/images/Get started today green.svg'
 import getStartedTodayPink from '@/assets/images/Get started today pink.svg'
 import getStartedTodayYellow from '@/assets/images/Get started today yellow.svg'
 import Footer from "@/components/organisms/footer";
+import Getyourown from "@/components/organisms/getyourown";
+import Boxes from "@/components/organisms/boxes";
+import Communitieswork from "@/components/organisms/communitieswork";
 
 export default function Home() {
   return (
@@ -20,9 +23,12 @@ export default function Home() {
       <InfiniteMovingCards items={[CarauselLogo]} />
       <OurSites />
       <Gallery />
+      <Getyourown />
+      <Boxes />
       <BuildLaunch />
       <Customers />
       <FAQ />
+      <Communitieswork />
       <InfiniteMovingCards speed="slow" items={[getStartedTodayGreen, getStartedTodayPink, getStartedTodayYellow]} />
       <Footer />
     </>
