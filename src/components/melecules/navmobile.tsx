@@ -1,71 +1,130 @@
-"use client"
+"use client";
 
-import { useCallback, useState } from 'react';
-import MiicroLogo from '@/assets/images/Logo.svg'
-import Image from 'next/image';
-import Link from 'next/link';
-import { Dropdownlanguage } from './dropdownlanguage';
+import { useCallback, useState } from "react";
+import MiicroLogo from "@/assets/images/Logo.svg";
+import Image from "next/image";
+import Link from "next/link";
+import { Dropdownlanguage } from "./dropdownlanguage";
 import { MdClose } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
-import clsx from 'clsx';
-import { FaChevronRight } from "react-icons/fa";
+import clsx from "clsx";
+import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
-import TemplateIcon from '@/assets/images/Template.svg'
-import PricingIcon from '@/assets/images/Pricing.svg'
-import CLientIcon from '@/assets/images/Client.svg'
-import ProductsIcon from '@/assets/images/Products.svg'
+import TemplateIcon from "@/assets/images/Template.svg";
+import PricingIcon from "@/assets/images/Pricing.svg";
+import CLientIcon from "@/assets/images/Client.svg";
+import ProductsIcon from "@/assets/images/Products.svg";
 
 export default function NavMobile() {
-  const [state, setState] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState<number | null>(null);
+  const [isActiveItem, setIsActiveItem] = useState(false)
+
   // Replace # paths with your paths
   const navigation = [
-    { title: 'Products', path: '#', image: TemplateIcon },
-    { title: 'Pricing', path: '#', image: PricingIcon },
-    { title: 'Clients', path: '#', image: CLientIcon },
-    { title: 'Templates', path: '#', image: ProductsIcon }
+    { title: "Products", path: "#", image: ProductsIcon, subMenu: 
+    [
+      {
+        title: 'Minima',
+        desc: 'For small businesses'
+      },
+      {
+        title: 'Performa',
+        desc: 'For medium sized businesses'
+      },
+      {
+        title: 'Payma',
+        desc: 'For online stores'
+      },
+      {
+        title: 'Ordaa',
+        desc: 'With food ordering system'
+      },
+    ]
+    },
+    { title: "Pricing", path: "#", image: PricingIcon },
+    { title: "Clients", path: "#", image: CLientIcon },
+    { title: "Templates", path: "#", image: TemplateIcon },
   ];
 
-  const ShowMenu = useCallback(() => {
-    if (state) {
-      setState(false)
-    } else {
-      setState(true)
-    }
-  }, [state])
+  const toggleMenu = useCallback(() => {
+    setMenuOpen((prevState) => !prevState);
+  }, []);
+
+  const handleItemClick = useCallback((index: number) => {
+    setActiveItem(index);
+    console.log(index)
+    setIsActiveItem(!isActiveItem);
+  }, []);
+
   return (
-    <nav className={`w-full md:text-sm md:hidden block ${state ? 'shadow-lg rounded-xl  md:shadow-none' : ''}`}>
+    <nav
+      className={`w-full md:text-sm md:hidden block ${
+        menuOpen ? "shadow-lg rounded-xl md:shadow-none" : ""
+      }`}
+    >
       <div className="gap-x-14 items-center max-w-screen-xl md:flex">
-        <div className="flex items-center justify-between  md:block">
+        <div className="flex items-center justify-between md:block">
           <a href="#">
             <Image src={MiicroLogo} alt="logo" className="w-[100px] my-7" />
           </a>
           <div className="md:hidden">
             <button
-              className={clsx('hover:text-gray-800 outline-none border-none p-2 rounded-lg text-lg', {
-                'bg-[#F4A4EC] text-black': state,
-                'bg-[#1F2126] text-white': !state,
-              })}
-              onClick={ShowMenu}
+              className={clsx(
+                "hover:text-gray-800 outline-none border-none p-2 rounded-lg text-lg",
+                {
+                  "bg-[#F4A4EC] text-black": menuOpen,
+                  "bg-[#1F2126] text-white": !menuOpen,
+                }
+              )}
+              onClick={toggleMenu}
             >
-              {
-                state ? <MdClose /> : <IoMdMenu />
-              }
+              {menuOpen ? <MdClose /> : <IoMdMenu />}
             </button>
           </div>
         </div>
-        <div className={`absolute left-0 px-5 h-screen pb-36 bg-[#141518] w-full items-center justify-between pt-8 md:mt-0 flex flex-col ${state ? 'block' : 'hidden'}`}>
+        <div
+          className={`absolute left-0 px-5 h-screen pb-36 bg-[#141518] w-full items-center justify-between pt-8 md:mt-0 flex flex-col ${
+            menuOpen ? "block" : "hidden"
+          }`}
+        >
           <ul className="justify-center items-center w-full space-y-6 md:flex md:space-x-6 md:space-y-0">
-            {navigation.map((item, idx) => (
-              <li key={idx} className="text-white hover:text-gray-900 flex items-center justify-between">
-                <div className='flex items-center gap-2'>
-                  <Image src={item.image} alt={item.title} width={20} height={20} sizes='100vw' />
+            {navigation.map((item, idx) => <>
+              <li
+                key={idx}
+                className={clsx(
+                  "text-white flex items-center justify-between p-2 rounded-lg",
+                  {
+                    "bg-[#1F2126] p-4": activeItem === idx,
+                    "hover:text-gray-900": activeItem !== idx,
+                  }
+                )}
+                onClick={() => handleItemClick(idx)}
+              >
+                <div className="flex items-center gap-2">
+                  {activeItem === idx ? <button onClick={() => {setIsActiveItem(!isActiveItem)}}><FaChevronLeft /></button> : <></>} 
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={20}
+                    height={20}
+                    sizes="100vw"
+                  />
                   <a href={item.path} className="block">
                     {item.title}
                   </a>
                 </div>
-                <FaChevronRight />
+                {activeItem === idx ? <></> : <FaChevronRight />}
               </li>
-            ))}
+              {/* {activeItem === idx && isActiveItem === true ? <ul className="bg-[#141518] #FFFFFF80 px-2 mt-2 text-white w-full h-max flex flex-col gap-7">
+                {item.subMenu?.map((menu, index) => (
+                  <li>
+                    <h4 className="text-[18px]">{menu.title}</h4>
+                    <p className="text-[14px] opacity-40">{menu.desc}</p>
+                  </li>
+                ))}
+              </ul>: <></>}  */}
+                </>)}
           </ul>
           <div className="items-center justify-end space-y-3 md:flex md:space-y-0 md:mt-0 w-full">
             <Dropdownlanguage />
