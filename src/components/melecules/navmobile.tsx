@@ -23,7 +23,7 @@ export default function NavMobile() {
   }, []);
 
   return (
-    <nav className={`w-full md:text-sm ${state ? 'shadow-lg rounded-xl border  md:shadow-none md:border-none' : ''}`}>
+    <nav className={`w-full md:text-sm md:hidden block ${state ? 'shadow-lg rounded-xl border  md:shadow-none md:border-none' : ''}`}>
       <div className="gap-x-14 items-center max-w-screen-xl md:flex">
         <div className="flex items-center justify-between  md:block">
           <a href="javascript:void(0)">
