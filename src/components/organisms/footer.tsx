@@ -59,7 +59,7 @@ const footerNavs = [
 
 export default function Footer() {
   return (
-    <footer className="text-white bg-dot-white/[0.2] px-4 py-5 max-w-screen-xl mx-auto md:px-8">
+    <footer className="text-white bg-dot-white/[0.2] px-6 py-6 max-w-screen-xl mx-auto md:px-8">
       <div className="gap-6 justify-between md:flex ">
         <div className="flex-1">
           <div className="max-w-xs">
@@ -80,11 +80,11 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="md:flex-1 md:w-auto flex mt-10 space-y-6 items-center justify-center gap-36 sm:flex md:space-y-0 md:mt-0">
+        <div className="md:flex-1 md:w-auto flex mt-10 space-y-6 items-center  md:justify-center md:gap-[102px] sm:flex md:space-y-0 md:mt-0">
           {
             footerNavs.map((item, idx) => (
               <ul
-                className="space-y-4"
+                className={`space-y-4  md:mr-0 ${idx > 0 ? "" : "md:mr-0 mr-[100px]"} w-max`}
                 key={idx}
               >
                 <h4 className="font-ManropeSemibold">
@@ -95,7 +95,7 @@ export default function Footer() {
                     <li key={idx}>
                       <a
                         href={el.href}
-                        className="hover:underline hover:text-indigo-600 font-ManropeRegular"
+                        className="hover:underline hover:text-indigo-600 font-ManropeRegular "
 
                       >
                         {el.name}
@@ -109,9 +109,9 @@ export default function Footer() {
         </div>
         <form
           onSubmit={(e) => e.preventDefault()}
-          className='flex flex-col items-center flex-1 md:items-start justify-center w-full mt-10'
+          className='flex flex-col items-center flex-1 md:items-start w-full md:mt-0  mt-10'
         >
-          <label className="block pt-4 pb-2 font-ManropeSemibold">
+          <label className="block md:pt-0 pt-4 pb-2 font-ManropeSemibold">
             Sign up to our newsletter
           </label>
           <div className="max-w-sm flex md:flex-row flex-col items-center justify-center bg-[#1F2126] w-full rounded-3xl p-3 mt-5">
