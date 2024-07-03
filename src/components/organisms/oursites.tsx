@@ -5,7 +5,7 @@ import OurSitesVideo from '@/assets/images/OurSitesVideo.svg'
 
 export default function OurSites() {
   return (
-    <section className="w-[80%] h-[500px] flex justify-between m-auto text-white mt-20">
+    <section className="w-[70%] h-[500px] flex justify-between m-auto text-white mt-20">
       <div>
         <div className="flex items-end flex-col w-max">
           <p className="bg-[#E2D26C] relative -right-16 -bottom-5 w-max px-2 py-4 text-sm font-ManropeBold text-black rounded-full">NEW</p>

@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa6";
 
 export default function Customers() {
   return (
-    <section className="w-[80%] h-[500px] flex justify-between m-auto text-white mt-20">
+    <section className="w-[70%] h-[500px] flex justify-between m-auto text-white mt-20">
       <div><h1 className="font-ChillaxMedium text-6xl w-[70%]"><span className="text-[#F4A4EC]">1,000</span> customers & counting</h1>
         <div className="w-[65%] mt-10 font-ManropeRegular">
           <p>I used the Eris theme to create my portfolio website, and I didn&apos;t have to use any website builder. I got the design I love, and it shows my work perfectly.</p>
