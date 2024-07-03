@@ -22,25 +22,27 @@ export default function NavMobile() {
   // Replace # paths with your paths
   const navigation = [
     {
-      title: "Products", path: "#", image: ProductsIcon, subMenu:
-        [
-          {
-            title: 'Minima',
-            desc: 'For small businesses'
-          },
-          {
-            title: 'Performa',
-            desc: 'For medium sized businesses'
-          },
-          {
-            title: 'Payma',
-            desc: 'For online stores'
-          },
-          {
-            title: 'Ordaa',
-            desc: 'With food ordering system'
-          },
-        ]
+      title: "Products",
+      path: "#",
+      image: ProductsIcon,
+      subMenu: [
+        {
+          title: "Minima",
+          desc: "For small businesses",
+        },
+        {
+          title: "Performa",
+          desc: "For medium sized businesses",
+        },
+        {
+          title: "Payma",
+          desc: "For online stores",
+        },
+        {
+          title: "Ordaa",
+          desc: "With food ordering system",
+        },
+      ],
     },
     { title: "Pricing", path: "#", image: PricingIcon },
     { title: "Clients", path: "#", image: CLientIcon },
@@ -51,9 +53,12 @@ export default function NavMobile() {
     setMenuOpen((prevState) => !prevState);
   }, []);
 
-  const handleItemClick = useCallback((index: number) => {
-    setActiveItem(index === activeItem ? null : index);
-  }, [activeItem]);
+  const handleItemClick = useCallback(
+    (index: number) => {
+      setActiveItem(index === activeItem ? null : index);
+    },
+    [activeItem]
+  );
 
   const handleBackClick = useCallback(() => {
     setActiveItem(null);
@@ -61,8 +66,9 @@ export default function NavMobile() {
 
   return (
     <nav
-      className={`md:w-full w-[92%] m-auto md:text-sm md:hidden block ${menuOpen ? "shadow-lg rounded-xl md:shadow-none" : ""
-        }`}
+      className={`md:w-full w-[92%] m-auto md:text-sm md:hidden block ${
+        menuOpen ? "shadow-lg rounded-xl md:shadow-none" : ""
+      }`}
     >
       <div className="gap-x-14 items-center max-w-screen-xl md:flex">
         <div className="flex items-center justify-between md:block">
@@ -85,12 +91,18 @@ export default function NavMobile() {
           </div>
         </div>
         <div
-          className={`absolute left-0 px-5 h-screen pb-36 bg-[#141518] w-full items-center justify-between pt-8 md:mt-0 flex flex-col ${menuOpen ? "block" : "hidden"
-            }`}
+          className={`absolute left-0 px-5 h-screen pb-36 bg-[#141518] w-full items-center justify-between pt-8 md:mt-0 flex flex-col ${
+            menuOpen ? "block" : "hidden"
+          }`}
         >
           <ul className="justify-center items-center w-full space-y-6 md:flex md:space-x-6 md:space-y-0">
             {navigation.map((item, idx) => (
-              <li key={idx} className={activeItem !== null && activeItem !== idx ? "hidden" : "block"}>
+              <li
+                key={idx}
+                className={
+                  activeItem !== null && activeItem !== idx ? "hidden" : "block"
+                }
+              >
                 <div
                   className={clsx(
                     "text-white flex items-center justify-between p-2 rounded-lg",
@@ -99,17 +111,20 @@ export default function NavMobile() {
                   onClick={() => handleItemClick(idx)}
                 >
                   <div className="flex items-center gap-2">
-                    {activeItem === idx && item.subMenu ? (
-                      <button onClick={handleBackClick}><FaChevronLeft /></button>
+                    {activeItem === idx ? (
+                      <button onClick={handleBackClick}>
+                        <FaChevronLeft />
+                      </button>
                     ) : (
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        width={20}
-                        height={20}
-                        sizes="100vw"
-                      />
+                      ""
                     )}
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={20}
+                      height={20}
+                      sizes="100vw"
+                    />
                     <a href={item.path} className="block">
                       {item.title}
                     </a>

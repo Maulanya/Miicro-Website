@@ -6,7 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 export default function Getyourown() {
   return (
     <section className="text-white md:hidden mt-10 flex flex-col w-[85%] m-auto relative z-[-1]">
-      <h2 className="text-[40px] font-ChillaxMedium">
+      <h2 className="text-[40px] font-ChillaxMedium leading-[48px] mb-3">
         Get your own website for
       </h2>
       <div className="flex gap-4 items-center">

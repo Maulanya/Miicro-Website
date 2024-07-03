@@ -69,7 +69,7 @@ export default function Main() {
       </main>
 
       {/* DESKTOP MAIN */}
-      <main className="md:w-[80%] m-auto hidden md:block">
+      <main className="md:w-[85%] m-auto hidden md:block mb-[85px]">
         <div className="flex justify-between">
           <div className="flex items-end">
             <h1 className="text-6xl font-ChillaxMedium">
@@ -101,7 +101,7 @@ export default function Main() {
           Get Started <FaArrowRightLong />
         </button>
 
-        <div className="mt-40">
+        <div className="mt-[100px]">
           <p className="font-ManropeMedium">
             We do everything so you don’t have to:
           </p>

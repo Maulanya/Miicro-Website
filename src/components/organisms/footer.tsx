@@ -109,7 +109,7 @@ export default function Footer() {
         </div>
         <form
           onSubmit={(e) => e.preventDefault()}
-          className='flex flex-col items-center md:items-start justify-center w-full mt-10'
+          className='flex flex-col items-center flex-1 md:items-start justify-center w-full mt-10'
         >
           <label className="block pt-4 pb-2 font-ManropeSemibold">
             Sign up to our newsletter
