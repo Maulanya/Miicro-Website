@@ -12,7 +12,7 @@ export function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
     <Menu setActive={setActive}>
-      <MenuItem setActive={setActive} active={active} imageIcon={ProductsIcon} item="Products">
+      <MenuItem setActive={setActive} active={active} imageIcon={ProductsIcon} dropdown={true} item="Products">
         <div className="  text-sm grid grid-cols-2 gap-10 p-4">
           <ProductItem
             title="Algochurn"
@@ -40,7 +40,7 @@ export function Navbar({ className }: { className?: string }) {
           />
         </div>
       </MenuItem>
-      <MenuItem setActive={setActive} active={active} imageIcon={PricingIcon} item="Pricing">
+      <MenuItem setActive={setActive} active={active} imageIcon={PricingIcon} dropdown={false} item="Pricing">
         <div className="flex flex-col space-y-4 text-sm">
           <HoveredLink href="/hobby">Hobby</HoveredLink>
           <HoveredLink href="/individual">Individual</HoveredLink>
@@ -48,7 +48,7 @@ export function Navbar({ className }: { className?: string }) {
           <HoveredLink href="/enterprise">Enterprise</HoveredLink>
         </div>
       </MenuItem>
-      <MenuItem setActive={setActive} active={active} imageIcon={CLientIcon} item="Client">
+      <MenuItem setActive={setActive} active={active} imageIcon={CLientIcon} dropdown={false} item="Client">
         <div className="flex flex-col space-y-4 text-sm">
           <HoveredLink href="/hobby">Hobby</HoveredLink>
           <HoveredLink href="/individual">Individual</HoveredLink>
@@ -56,7 +56,7 @@ export function Navbar({ className }: { className?: string }) {
           <HoveredLink href="/enterprise">Enterprise</HoveredLink>
         </div>
       </MenuItem>
-      <MenuItem setActive={setActive} active={active} imageIcon={TemplateIcon} item="Template">
+      <MenuItem setActive={setActive} active={active} imageIcon={TemplateIcon} dropdown={false} item="Template">
         <div className="flex flex-col space-y-4 text-sm">
           <HoveredLink href="/hobby">Hobby</HoveredLink>
           <HoveredLink href="/individual">Individual</HoveredLink>
