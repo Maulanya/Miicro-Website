@@ -6,9 +6,9 @@ import NavMobile from "../melecules/navmobile"
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between md:px-10 px-3 md:py-3 w-full sticky top-0 bg-[#121316] z-[100]">
+    <header className="flex items-center justify-between md:px-10 px-3 md:py-0 w-full sticky top-0 bg-[#121316] z-[100]">
       <nav className="md:flex hidden items-center text-white w-full justify-between">
-        <Image src={Logo} alt="logo" className="w-20 h-20" sizes="100vw" />
+        <Image src={Logo} alt="logo" className="w-[105px]" sizes="100vw" />
         <div className="relative -right-28 flex justify-center">
           <Navbar className="top-2" />
         </div>
