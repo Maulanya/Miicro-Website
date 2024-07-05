@@ -1,3 +1,5 @@
+"use client"
+
 import Header from "@/components/organisms/header";
 import Main from "@/components/organisms/main";
 import { InfiniteMovingCards } from "@/components/organisms/infinite-moving-cards";
@@ -14,10 +16,11 @@ import Footer from "@/components/organisms/footer";
 import Getyourown from "@/components/organisms/getyourown";
 import Boxes from "@/components/organisms/boxes";
 import Communitieswork from "@/components/organisms/communitieswork";
+import { UserbackProvider } from '@userback/react';
 
 export default function Home() {
   return (
-    <>
+    <UserbackProvider token="A-3fq7ZC9klLzGcaWTBU7pNBRs3">
       <Header />
       <Main />
       <InfiniteMovingCards items={[CarauselLogo]} />
@@ -31,6 +34,6 @@ export default function Home() {
       <Communitieswork />
       <InfiniteMovingCards speed="slow" items={[getStartedTodayGreen, getStartedTodayPink, getStartedTodayYellow]} />
       <Footer />
-    </>
+    </UserbackProvider>
   );
 }
