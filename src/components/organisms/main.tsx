@@ -14,7 +14,7 @@ export default function Main() {
       {/* MOBILE MAIN */}
       <main className="md:hidden block text-center pt-[20px]">
         <div className="mb-6 mt-5">
-          <h1 className="text-center w-[320px] m-auto text-[34px] leading-[41px] font-ChillaxMedium font-medium">
+          <h1 className="text-center w-[365px] m-auto text-[34px] leading-[41px] font-ChillaxMedium font-medium">
             <span className="text-[#F4A4EC]">WordPress</span> themes and fully{" "}
             <span className="text-[#F4A4EC]">managed</span> websites.
           </h1>
