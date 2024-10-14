@@ -37,7 +37,7 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className="relative w-full">
       <motion.div
         transition={{ duration: 0.3 }}
-        className='cursor-pointer text-black hover:opacity-[0.9] dark:text-white flex items-center justify-between md:justify-center gap-2'
+        className='cursor-pointer hover:opacity-[0.9] text-white flex items-center justify-between md:justify-center gap-2'
       >
         <div className="flex items-center justify-center gap-1 w-max">
           {Icon ? <Icon /> : imageIcon ? <Image src={imageIcon} alt={item} className="w-5 h-5" /> : null}
@@ -56,7 +56,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-[#1F2126] backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
+                className="bg-[#1F2126] backdrop-blur-sm rounded-2xl overflow-hidden border  border-white/[0.2] shadow-xl"
               >
                 <motion.div
                   layout // layout ensures smooth animation
@@ -111,10 +111,10 @@ export const ProductItem = ({
         className="flex-shrink-0 rounded-md shadow-2xl"
       />
       <div>
-        <h4 className="text-xl font-bold mb-1 text-black dark:text-white">
+        <h4 className="text-xl font-bold mb-1 text-white">
           {title}
         </h4>
-        <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300">
+        <p className="text-sm max-w-[10rem] text-neutral-300">
           {description}
         </p>
       </div>
@@ -126,7 +126,7 @@ export const HoveredLink = ({ className, children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className={`text-neutral-700 dark:text-neutral-200 hover:text-black ${className}`}
+      className={`text-neutral-200 hover:text-black ${className}`}
     >
       {children}
     </Link>
