@@ -14,7 +14,7 @@ export default function Customers() {
         </div>
         <div className="md:w-[65%] mt-10 md:text-[16px] text-[20px] font-ManropeRegular">
           <p>I used the Eris theme to create my portfolio website, and I didn&apos;t have to use any website builder. I got the design I love, and it shows my work perfectly.</p>
-          <p className="text-sm mt-8">Jane Smith, Designer</p>
+          <p className="md:text-sm text-[16px] mt-8">Jane Smith, Designer</p>
         </div>
         <div className="flex items-center gap-3 mt-5">
           <div className="p-4 bg-[#1F2126] flex items-center justify-center rounded-full"><FaArrowLeft className="text-[#F4A4EC]" /></div>

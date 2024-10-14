@@ -39,7 +39,7 @@ export const MenuItem = ({
         transition={{ duration: 0.3 }}
         className='cursor-pointer hover:opacity-[0.9] text-white flex items-center justify-between md:justify-center gap-2'
       >
-        <div className="flex items-center justify-center gap-1 w-max">
+        <div className="flex items-center justify-center gap-2 w-max">
           {Icon ? <Icon /> : imageIcon ? <Image src={imageIcon} alt={item} className="w-5 h-5" /> : null}
           {item}
         </div>
@@ -83,7 +83,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)}
-      className='relative shadow-input flex justify-center space-x-4 md:px-8 md:py-6 px-5 py-3 mb-5 md:mb-0 border md:border-none border-[#1F2126] rounded-lg'
+      className='relative shadow-input flex justify-center space-x-4 md:px-8 md:py-6 px-5 py-3 mb-5 gap-[26px] md:mb-0 border md:border-none border-[#1F2126] rounded-lg'
     >
       {children}
     </nav>

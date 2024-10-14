@@ -9,12 +9,12 @@ import { TrustedPilot } from "../atoms/trustpilot";
 
 export default function Main() {
   return (
-    <section className="text-white bg-dot-white/[0.2] h-full w-full">
+    <section className="text-white bg-dot-white/[0.1] h-full w-full md:pt-[50px]">
 
       {/* MOBILE MAIN */}
       <main className="md:hidden block text-center pt-[20px]">
         <div className="mb-6 mt-5">
-          <h1 className="text-center text-[34px] leading-[41px] font-ChillaxMedium font-medium">
+          <h1 className="text-center w-[365px] m-auto text-[34px] leading-[41px] font-ChillaxMedium font-medium">
             <span className="text-[#F4A4EC]">WordPress</span> themes and fully{" "}
             <span className="text-[#F4A4EC]">managed</span> websites.
           </h1>
@@ -71,8 +71,8 @@ export default function Main() {
       {/* DESKTOP MAIN */}
       <main className="md:w-[85%] m-auto hidden md:block mb-[85px]">
         <div className="flex justify-between">
-          <div className="flex items-end">
-            <h1 className="text-6xl font-ChillaxMedium">
+          <div className="flex items-end md:pt-[48px]">
+            <h1 className="text-7xl leading-[76px] font-ChillaxMedium">
               Website plans <br /> starting 
               <br /> from only
             </h1>
@@ -97,12 +97,12 @@ export default function Main() {
             <div className="w-[150px] h-[150px] border border-[#F4A4EC] z-10 rounded-full absolute top-56 right-56" /> */}
           </div>
         </div>
-        <button className="flex items-center gap-3 mt-5 px-8 py-4 font-ChillaxMedium bg-[#F4A4EC] text-black rounded-full">
+        <button className="flex items-center md:text-xl gap-3 mt-7 px-8 py-4 font-ChillaxMedium bg-[#F4A4EC] text-black rounded-full">
           Get Started <FaArrowRightLong />
         </button>
 
-        <div className="mt-[100px]">
-          <p className="font-ManropeMedium">
+        <div className="mt-[120px]">
+          <p className="font-ManropeMedium md:text-xl md:mb-[15px]">
             We do everything so you don’t have to:
           </p>
           <div className="flex items-center justify-between gap-5 mt-2 w-max main-check">
@@ -124,7 +124,7 @@ export default function Main() {
           </div>
         </div>
 
-        <div className="mt-10 flex gap-2">
+        <div className="mt-[55px] flex gap-2">
           <div className="flex items-center">
             <p className="font-SFprodisplayBold">Rated Excellent</p>
             <div className="ml-2 flex items-start gap-1">
@@ -135,7 +135,7 @@ export default function Main() {
               <TrustedStars value={50} />
             </div>
           </div>
-          <div className="flex items-center md:gap-0 gap-3 font-SFprodisplayRegular text-lg">
+          <div className="flex items-center md:gap-3 gap-3 font-SFprodisplayRegular text-lg">
             <p>151 reviews on</p>
             <p className="flex items-center gap-1">
               <TrustedPilot /> trustpilot
